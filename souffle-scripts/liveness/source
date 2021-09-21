@@ -1,0 +1,4 @@
+a = b + c
+b = a - d
+c = b + c
+halt

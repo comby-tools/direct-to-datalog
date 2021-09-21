@@ -1,0 +1,63 @@
+go
+321084
+{
+  "number_of_files": 6797,
+  "lines_of_code": 1701105,
+  "number_of_matches": 34658,
+  "total_time": 176175.24099349976
+}
+----------------------------------------
+kubernetes
+334308
+{
+  "number_of_files": 9543,
+  "lines_of_code": 2436029,
+  "number_of_matches": 31669,
+  "total_time": 153530.4090976715
+}
+----------------------------------------
+syncthing
+21665
+{
+  "number_of_files": 502,
+  "lines_of_code": 131999,
+  "number_of_matches": 1908,
+  "total_time": 8910.890817642212
+}
+----------------------------------------
+zig
+70461
+{
+  "number_of_files": 880,
+  "lines_of_code": 467499,
+  "number_of_matches": 7414,
+  "total_time": 41713.07992935181
+}
+----------------------------------------
+zls
+2454
+{
+  "number_of_files": 23,
+  "lines_of_code": 16704,
+  "number_of_matches": 256,
+  "total_time": 1549.422025680542
+}
+----------------------------------------
+dida
+1381
+{
+  "number_of_files": 18,
+  "lines_of_code": 5281,
+  "number_of_matches": 165,
+  "total_time": 910.0170135498047
+}
+----------------------------------------
+linux
+3660511
+{
+  "number_of_files": 30185,
+  "lines_of_code": 20916027,
+  "number_of_matches": 513264,
+  "total_time": 2234816.816806793
+}
+----------------------------------------

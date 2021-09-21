@@ -1,0 +1,198 @@
+digraph gocallvis {
+    labeljust="l";
+    fontname="Arial";
+    fontsize="14";
+//  rankdir="LR";
+    bgcolor="white";
+    style="solid";
+    penwidth="0.5";
+    pad="0.0";
+    nodesep="0.35";
+
+    node [shape="ellipse" style="filled" colorscheme=brbg11 label="" fillcolor=white fontsize=20]
+    "To" [  label="A" fontcolor=white fillcolor=11  ]
+    "LatestRelease" [ label="B" fontcolor=white fillcolor=11  ]
+    "ToURL" [ label="C" fontcolor=white fillcolor=11  ]
+    "FetchLatestReleases" [label="D"  fontcolor=white fillcolor=10  ]
+    "SelectLatestRelease" [label="E" fontcolor=white fillcolor=10   ]
+    "upgradeTo" [label="F" fontcolor=white fillcolor=10  ]
+    "CompareVersions" [label="G" fontcolor=white fillcolor=9  ]
+    "upgradeToURL" [label="H" fillcolor=9 fontcolor=white ]
+    "l.Infoln" [label="I" fillcolor=8  ]
+    "insecureGet" [label="J" fillcolor=8  ]
+    "versionParts" [label="K" fillcolor=5  ]
+    "l.Debugln" [label="L" fillcolor=5  ]
+    "releaseNames" [label="M" fillcolor=5  ]
+    "readRelease" [label="N" fillcolor=4  ]
+    "readZip" [label="O" fillcolor=3 fontcolor=white ]
+    "readTarGz" [label="P" fillcolor=3 fontcolor=white ]
+    "verifyUpgrade" [ label="Q" fontcolor=white fillcolor=2  ]
+    "archiveFileVisitor" [ label="R" fontcolor=white fillcolor=2  ]
+    "signature.Verify" [ label="S" fontcolor=white fillcolor=1  ]
+    "l.Debugf" [ label="T" fontcolor=white fillcolor=1  ]
+    "writeBinary" [ label="U" fontcolor=white fillcolor=1  ]
+
+    // prepend "x" to create unique lables in the second graph
+    node [shape="ellipse" style="filled" colorscheme=brbg11 label="" fillcolor=white fontsize=20]
+    "xTo" [label="A" fontcolor=white fillcolor=11  ]
+    "xLatestRelease" [ label="B" fontcolor=white fillcolor=11  ]
+    "xToURL" [label="C" fontcolor=white fillcolor=11  ]
+    "xFetchLatestReleases" [label="D" fontcolor=white fillcolor=10  ]
+    "xSelectLatestRelease" [label="E" fontcolor=white fillcolor=10   ]
+    "xupgradeTo" [label="F" fontcolor=white fillcolor=10  ]
+    "xCompareVersions" [label="G" fillcolor=9 fontcolor=white ]
+    "xupgradeToURL" [label="H" fillcolor=9 fontcolor=white ]
+    "xInfoln" [label="I" fillcolor=8  ]
+    "xinsecureGet" [label="J" fillcolor=8  ]
+    "xversionParts" [label="K" fillcolor=5  ]
+    "xDebugln" [label="L" fillcolor=5  ]
+    "xreleaseNames" [label="M" fillcolor=5  ]
+    "xreadRelease" [label="N" fillcolor=4  ]
+    "xreadZip" [label="O" fillcolor=3 fontcolor=white ]
+    "xreadTarGz" [label="P" fillcolor=3 fontcolor=white ]
+    "xverifyUpgrade" [label="Q" fontcolor=white fillcolor=2  ]
+    "xarchiveFileVisitor" [label="R" fontcolor=white fillcolor=2  ]
+    "xVerify" [label="S" fontcolor=white fillcolor=1  ]
+    "xDebugf" [label="T" fontcolor=white fillcolor=1  ]
+    "xwriteBinary" [label="U" fontcolor=white fillcolor=1  ]
+
+
+
+"CompareVersions" -> "len"
+"CompareVersions" -> "versionParts"
+"FetchLatestReleases" -> "Decode"
+"FetchLatestReleases" -> "insecureGet"
+"FetchLatestReleases" -> "io.LimitReader"
+"FetchLatestReleases" -> "json.NewDecoder"
+"FetchLatestReleases" -> "l.Infoln"
+"FetchLatestReleases" -> "resp.Body.Close"
+"LatestRelease" -> "FetchLatestReleases"
+"LatestRelease" -> "SelectLatestRelease"
+"SelectLatestRelease" -> "CompareVersions"
+"SelectLatestRelease" -> "SortByRelease"
+"SelectLatestRelease" -> "l.Debugln"
+"SelectLatestRelease" -> "len"
+"SelectLatestRelease" -> "path.Base"
+"SelectLatestRelease" -> "releaseNames"
+"SelectLatestRelease" -> "sort.Reverse"
+"SelectLatestRelease" -> "sort.Sort"
+"SelectLatestRelease" -> "strings.HasPrefix"
+"To" -> "os.Executable"
+"To" -> "upgradeTo"
+"ToURL" -> "os.Executable"
+"ToURL" -> "path.Base"
+"ToURL" -> "upgradeToURL"
+"archiveFileVisitor" -> "io.LimitReader"
+"archiveFileVisitor" -> "ioutil.ReadAll"
+"archiveFileVisitor" -> "l.Debugf"
+"archiveFileVisitor" -> "len"
+"archiveFileVisitor" -> "path.Base"
+"archiveFileVisitor" -> "path.Dir"
+"archiveFileVisitor" -> "strings.Split"
+"archiveFileVisitor" -> "writeBinary"
+"insecureGet" -> "fmt.Sprintf"
+"insecureGet" -> "http.NewRequest"
+"insecureGet" -> "insecureHTTP.Do"
+"insecureGet" -> "req.Header.Set"
+"insecureGet" -> "runtime.Version"
+"readRelease" -> "http.NewRequest"
+"readRelease" -> "insecureHTTP.Do"
+"readRelease" -> "io.LimitReader"
+"readRelease" -> "l.Debugf"
+"readRelease" -> "path.Ext"
+"readRelease" -> "readTarGz"
+"readRelease" -> "readZip"
+"readRelease" -> "req.Header.Add"
+"readRelease" -> "resp.Body.Close"
+"readTarGz" -> "archiveFileVisitor"
+"readTarGz" -> "gzip.NewReader"
+"readTarGz" -> "tar.NewReader"
+"readTarGz" -> "tr.Next"
+"readTarGz" -> "verifyUpgrade"
+"readZip" -> "archiveFileVisitor"
+"readZip" -> "bytes.NewReader"
+"readZip" -> "file.Open"
+"readZip" -> "inFile.Close"
+"readZip" -> "int64"
+"readZip" -> "ioutil.ReadAll"
+"readZip" -> "len"
+"readZip" -> "verifyUpgrade"
+"readZip" -> "zip.NewReader"
+"releaseNames" -> "fmt.Sprintf"
+"upgradeTo" -> "l.Debugln"
+"upgradeTo" -> "path.Base"
+"upgradeTo" -> "releaseNames"
+"upgradeTo" -> "strings.HasPrefix"
+"upgradeTo" -> "upgradeToURL"
+"upgradeToURL" -> "filepath.Dir"
+"upgradeToURL" -> "os.Remove"
+"upgradeToURL" -> "os.Rename"
+"upgradeToURL" -> "readRelease"
+"verifyUpgrade" -> "bytes.NewBufferString"
+"verifyUpgrade" -> "errors.New"
+"verifyUpgrade" -> "fd.Close"
+"verifyUpgrade" -> "io.MultiReader"
+"verifyUpgrade" -> "l.Debugf"
+"verifyUpgrade" -> "os.Open"
+"verifyUpgrade" -> "os.Remove"
+"verifyUpgrade" -> "signature.Verify"
+"versionParts" -> "len"
+"versionParts" -> "make"
+"versionParts" -> "strconv.Atoi"
+"versionParts" -> "strings.HasPrefix"
+"versionParts" -> "strings.Split"
+"versionParts" -> "strings.SplitN"
+"writeBinary" -> "io.Copy"
+"writeBinary" -> "ioutil.TempFile"
+"writeBinary" -> "os.Chmod"
+"writeBinary" -> "os.FileMode"
+"writeBinary" -> "os.Remove"
+"writeBinary" -> "outFile.Close"
+"writeBinary" -> "outFile.Name"
+
+    "xCompareVersions" -> "xversionParts"
+    "xFetchLatestReleases" -> "xInfoln"
+    "xFetchLatestReleases" -> "xinsecureGet"
+    "xLatestRelease" -> "xFetchLatestReleases"
+    "xLatestRelease" -> "xSelectLatestRelease"
+    "xSelectLatestRelease" -> "xCompareVersions"
+    "xSelectLatestRelease" -> "xDebugln"
+    "xSelectLatestRelease" -> "xreleaseNames"
+    "xTo" -> "xupgradeTo"
+    "xToURL" -> "xupgradeToURL"
+    "xarchiveFileVisitor" -> "xDebugf"
+    "xarchiveFileVisitor" -> "xwriteBinary"
+    "xreadRelease" -> "xDebugf"
+    "xreadRelease" -> "xreadTarGz"
+    "xreadRelease" -> "xreadZip"
+    "xreadTarGz" -> "xarchiveFileVisitor"
+    "xreadTarGz" -> "xverifyUpgrade"
+    "xreadZip" -> "xarchiveFileVisitor"
+    "xreadZip" -> "xverifyUpgrade"
+    "xupgradeTo" -> "xDebugln"
+    "xupgradeTo" -> "xreleaseNames"
+    "xupgradeTo" -> "xupgradeToURL"
+    "xupgradeToURL" -> "xreadRelease"
+    "xverifyUpgrade" -> "xDebugf"
+    "xverifyUpgrade" -> "xVerify"
+
+// To ease visual comparison, exclude callvis edges out of or into other packages.
+//
+//  "Less" -> "CompareVersions"
+//  "Run" -> "ToURL"
+//  "autoUpgrade" -> "CompareVersions"
+//  "autoUpgrade" -> "LatestRelease"
+//  "autoUpgrade" -> "To"
+//  "checkUpgrade" -> "CompareVersions"
+//  "checkUpgrade" -> "LatestRelease"
+//  "getSystemUpgrade" -> "CompareVersions"
+//  "getSystemUpgrade" -> "LatestRelease"
+//  "init" -> "NewFacility"
+//  "init" -> "init#1"
+//  "postSystemUpgrade" -> "CompareVersions"
+//  "postSystemUpgrade" -> "LatestRelease"
+//  "postSystemUpgrade" -> "To"
+//  "(serveOptions).Run" -> "To"
+//  "startup" -> "CompareVersions"
+//  "syncthingMain" -> "To"
+}

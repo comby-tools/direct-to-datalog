@@ -1,0 +1,36 @@
+// -- inputs --
+.decl succ(l1:number, l2:number)
+.decl write(w:symbol, l:number)
+.decl read(w:symbol, l:number)
+
+// -- liveness analysis --
+.decl live(x:symbol, l:number)
+live(w, l) :- read(w, l).
+live(w, l) :- live(w, k), succ(k, l), !write(w, l).
+
+.output live
+
+// -- facts ---
+// plus.toml
+// w0 = w1 + w1
+read("w1", 1).
+read("w1", 1).
+write("w0", 1).
+succ(1, 1 + 1).
+
+// plus.toml
+// w2 = w1 + w0
+read("w1", 2).
+read("w0", 2).
+write("w2", 2).
+succ(2, 2 + 1).
+
+// plus.toml
+// w0 = w3 + w2
+read("w3", 3).
+read("w2", 3).
+write("w0", 3).
+succ(3, 3 + 1).
+
+// halt.toml
+

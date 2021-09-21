@@ -1,0 +1,15 @@
+// -- analysis --
+.decl edge(a:symbol, b:symbol)
+.decl calls(a:symbol, b:symbol)
+calls(X,Y) :- edge(X,K), calls(K,Y).
+calls(X,Y) :- edge(X,Y).
+
+// output
+.output calls 
+
+// output example: is there a path along which `main` calls `openFile`?
+// .decl mainCallsOpenFile()
+// mainCallsOpenFile() :- calls("main", "openFile").
+// .output mainCallsOpenFile
+
+// -- facts --

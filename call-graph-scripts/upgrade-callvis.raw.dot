@@ -1,0 +1,170 @@
+digraph gocallvis {
+    label="github.com/syncthing/syncthing/cmd/syncthing";
+    labeljust="l";
+    fontname="Arial";
+    fontsize="14";
+    rankdir="LR";
+    bgcolor="lightgray";
+    style="solid";
+    penwidth="0.5";
+    pad="0.0";
+    nodesep="0.35";
+
+    node [shape="ellipse" style="filled" fillcolor="honeydew" fontname="Verdana" penwidth="1.0" margin="0.05,0.0"];
+    edge [minlen="2"]
+
+    subgraph "cluster_focus" {
+        bgcolor="#e6ecfa";
+label="upgrade";
+labelloc="t";
+labeljust="c";
+fontsize="18";
+        
+        "github.com/syncthing/syncthing/lib/upgrade.CompareVersions" [ fillcolor="lightblue" label="CompareVersions" penwidth="1.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.CompareVersions | defined in upgrade_common.go:100\nat upgrade_common.go:101: calling [github.com/syncthing/syncthing/lib/upgrade.versionParts]\nat upgrade_common.go:102: calling [github.com/syncthing/syncthing/lib/upgrade.versionParts]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.versionParts" [ penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.versionParts | defined in upgrade_common.go:202" fillcolor="lightblue" label="versionParts" ]
+        "(github.com/syncthing/syncthing/lib/upgrade.SortByRelease).Less" [ label="(SortByRelease).Less" penwidth="1.5" tooltip="(github.com/syncthing/syncthing/lib/upgrade.SortByRelease).Less | defined in upgrade_supported.go:119\nat upgrade_supported.go:120: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" fillcolor="lightblue" ]
+        "github.com/syncthing/syncthing/lib/upgrade.FetchLatestReleases" [ fillcolor="lightblue" label="FetchLatestReleases" penwidth="1.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.FetchLatestReleases | defined in upgrade_supported.go:90\nat upgrade_supported.go:104: calling [(*github.com/syncthing/syncthing/lib/logger.logger).Infoln]\nat upgrade_supported.go:97: calling [(*github.com/syncthing/syncthing/lib/logger.logger).Infoln]\nat upgrade_supported.go:93: calling [(*github.com/syncthing/syncthing/lib/logger.logger).Infoln]\nat upgrade_supported.go:91: calling [github.com/syncthing/syncthing/lib/upgrade.insecureGet]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.insecureGet" [ penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.insecureGet | defined in upgrade_supported.go:78" fillcolor="lightblue" label="insecureGet" ]
+        "github.com/syncthing/syncthing/lib/upgrade.LatestRelease" [ fillcolor="lightblue" label="LatestRelease" penwidth="1.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.LatestRelease | defined in upgrade_supported.go:123\nat upgrade_supported.go:125: calling [github.com/syncthing/syncthing/lib/upgrade.SelectLatestRelease]\nat upgrade_supported.go:124: calling [github.com/syncthing/syncthing/lib/upgrade.FetchLatestReleases]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.SelectLatestRelease" [ fillcolor="lightblue" label="SelectLatestRelease" penwidth="1.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.SelectLatestRelease | defined in upgrade_supported.go:128\nat upgrade_supported.go:138: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]\nat upgrade_supported.go:142: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]\nat upgrade_supported.go:148: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln]\nat upgrade_supported.go:159: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln]\nat upgrade_supported.go:152: calling [github.com/syncthing/syncthing/lib/upgrade.releaseNames]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.releaseNames" [ label="releaseNames" penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.releaseNames | defined in upgrade_common.go:234" fillcolor="lightblue" ]
+        "github.com/syncthing/syncthing/lib/upgrade.upgradeTo" [ penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.upgradeTo | defined in upgrade_supported.go:175\nat upgrade_supported.go:176: calling [github.com/syncthing/syncthing/lib/upgrade.releaseNames]\nat upgrade_supported.go:179: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln]\nat upgrade_supported.go:183: calling [github.com/syncthing/syncthing/lib/upgrade.upgradeToURL]" fillcolor="lightblue" label="upgradeTo" ]
+        "github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade" [ label="verifyUpgrade" penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade | defined in upgrade_supported.go:368\nat upgrade_supported.go:395: calling [github.com/syncthing/syncthing/lib/signature.Verify]\nat upgrade_supported.go:376: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]" fillcolor="lightblue" ]
+        "github.com/syncthing/syncthing/lib/upgrade.readZip" [ fillcolor="lightblue" label="readZip" penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.readZip | defined in upgrade_supported.go:285\nat upgrade_supported.go:329: calling [github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade]\nat upgrade_supported.go:318: calling [github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor" [ fillcolor="lightblue" label="archiveFileVisitor" penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor | defined in upgrade_supported.go:338\nat upgrade_supported.go:342: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]\nat upgrade_supported.go:358: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]\nat upgrade_supported.go:351: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]\nat upgrade_supported.go:352: calling [github.com/syncthing/syncthing/lib/upgrade.writeBinary]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.writeBinary" [ fillcolor="lightblue" label="writeBinary" penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.writeBinary | defined in upgrade_supported.go:406" ]
+        "github.com/syncthing/syncthing/lib/upgrade.readRelease" [ fillcolor="lightblue" label="readRelease" penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.readRelease | defined in upgrade_supported.go:212\nat upgrade_supported.go:229: calling [github.com/syncthing/syncthing/lib/upgrade.readZip]\nat upgrade_supported.go:231: calling [github.com/syncthing/syncthing/lib/upgrade.readTarGz]\nat upgrade_supported.go:213: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.readTarGz" [ fillcolor="lightblue" label="readTarGz" penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.readTarGz | defined in upgrade_supported.go:235\nat upgrade_supported.go:278: calling [github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade]\nat upgrade_supported.go:268: calling [github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.upgradeToURL" [ tooltip="github.com/syncthing/syncthing/lib/upgrade.upgradeToURL | defined in upgrade_supported.go:192\nat upgrade_supported.go:193: calling [github.com/syncthing/syncthing/lib/upgrade.readRelease]" fillcolor="lightblue" label="upgradeToURL" penwidth="0.5" ]
+        "github.com/syncthing/syncthing/lib/upgrade.To" [ fillcolor="lightblue" label="To" penwidth="1.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.To | defined in upgrade_common.go:51\nat upgrade_common.go:59: calling [github.com/syncthing/syncthing/lib/upgrade.upgradeTo]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.init" [ fillcolor="lightblue" label="init" penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.init | defined in .:0\nat .:0: calling [github.com/syncthing/syncthing/lib/upgrade.init#1]\nat debug.go:14: calling [(*github.com/syncthing/syncthing/lib/logger.logger).NewFacility]" ]
+        "github.com/syncthing/syncthing/lib/upgrade.init#1" [ fillcolor="lightblue" label="init#1" penwidth="0.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.init#1 | defined in upgrade_common.go:47" ]
+        "github.com/syncthing/syncthing/lib/upgrade.ToURL" [ label="ToURL" penwidth="1.5" tooltip="github.com/syncthing/syncthing/lib/upgrade.ToURL | defined in upgrade_common.go:70\nat upgrade_common.go:78: calling [github.com/syncthing/syncthing/lib/upgrade.upgradeToURL]" fillcolor="lightblue" ]
+        
+        subgraph "cluster_github.com/syncthing/syncthing/cmd/syncthing" {
+        URL="/?f=github.com/syncthing/syncthing/cmd/syncthing";
+penwidth="0.8";
+fontname="Tahoma bold";
+label="main";
+rank="sink";
+tooltip="package: github.com/syncthing/syncthing/cmd/syncthing";
+fontsize="16";
+style="filled";
+fillcolor="lightyellow";
+        
+        "github.com/syncthing/syncthing/cmd/syncthing.checkUpgrade" [ fillcolor="moccasin" label="checkUpgrade" penwidth="0.5" tooltip="github.com/syncthing/syncthing/cmd/syncthing.checkUpgrade | defined in main.go:499\nat main.go:505: calling [github.com/syncthing/syncthing/lib/upgrade.LatestRelease]\nat main.go:510: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+        "github.com/syncthing/syncthing/cmd/syncthing.syncthingMain" [ label="syncthingMain" penwidth="0.5" tooltip="github.com/syncthing/syncthing/cmd/syncthing.syncthingMain | defined in main.go:554\nat main.go:635: calling [github.com/syncthing/syncthing/lib/upgrade.To]" fillcolor="moccasin" ]
+        "github.com/syncthing/syncthing/cmd/syncthing.autoUpgrade" [ fillcolor="moccasin" label="autoUpgrade" penwidth="0.5" tooltip="github.com/syncthing/syncthing/cmd/syncthing.autoUpgrade | defined in main.go:856\nat main.go:879: calling [github.com/syncthing/syncthing/lib/upgrade.LatestRelease]\nat main.go:899: calling [github.com/syncthing/syncthing/lib/upgrade.To]\nat main.go:863: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]\nat main.go:892: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+        "(github.com/syncthing/syncthing/cmd/syncthing.serveOptions).Run" [ fillcolor="moccasin" label="(serveOptions).Run" penwidth="1.5" tooltip="(github.com/syncthing/syncthing/cmd/syncthing.serveOptions).Run | defined in main.go:277\nat main.go:359: calling [github.com/syncthing/syncthing/lib/upgrade.ToURL]\nat main.go:386: calling [github.com/syncthing/syncthing/lib/upgrade.To]" ]
+        
+    }
+
+        subgraph "cluster_github.com/syncthing/syncthing/lib/api" {
+        fontsize="16";
+fillcolor="lightyellow";
+URL="/?f=github.com/syncthing/syncthing/lib/api";
+tooltip="package: github.com/syncthing/syncthing/lib/api";
+penwidth="0.8";
+style="filled";
+fontname="Tahoma bold";
+rank="sink";
+label="api";
+        
+        "(*github.com/syncthing/syncthing/lib/api.service).getSystemUpgrade" [ fillcolor="moccasin" label="(*service).getSystemUpgrade" penwidth="0.5" tooltip="(*github.com/syncthing/syncthing/lib/api.service).getSystemUpgrade | defined in api.go:1410\nat api.go:1416: calling [github.com/syncthing/syncthing/lib/upgrade.LatestRelease]\nat api.go:1424: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]\nat api.go:1425: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+        "(*github.com/syncthing/syncthing/lib/api.service).postSystemUpgrade" [ penwidth="0.5" tooltip="(*github.com/syncthing/syncthing/lib/api.service).postSystemUpgrade | defined in api.go:1456\nat api.go:1458: calling [github.com/syncthing/syncthing/lib/upgrade.LatestRelease]\nat api.go:1465: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]\nat api.go:1466: calling [github.com/syncthing/syncthing/lib/upgrade.To]" fillcolor="moccasin" label="(*service).postSystemUpgrade" ]
+        
+    }
+
+        subgraph "cluster_github.com/syncthing/syncthing/lib/logger" {
+        penwidth="0.8";
+style="filled";
+fillcolor="lightyellow";
+rank="sink";
+URL="/?f=github.com/syncthing/syncthing/lib/logger";
+fontsize="16";
+fontname="Tahoma bold";
+label="logger";
+tooltip="package: github.com/syncthing/syncthing/lib/logger";
+        
+        "(*github.com/syncthing/syncthing/lib/logger.logger).Infoln" [ penwidth="1.5" tooltip="(*github.com/syncthing/syncthing/lib/logger.logger).Infoln | defined in logger.go:161" fillcolor="moccasin" label="(*logger).Infoln" ]
+        "(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln" [ fillcolor="moccasin" label="(*facilityLogger).Debugln" penwidth="1.5" tooltip="(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln | defined in logger.go:271" ]
+        "(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf" [ penwidth="1.5" tooltip="(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf | defined in logger.go:279" fillcolor="moccasin" label="(*facilityLogger).Debugf" ]
+        "(*github.com/syncthing/syncthing/lib/logger.logger).NewFacility" [ penwidth="1.5" tooltip="(*github.com/syncthing/syncthing/lib/logger.logger).NewFacility | defined in logger.go:249" fillcolor="moccasin" label="(*logger).NewFacility" ]
+        
+    }
+
+        subgraph "cluster_github.com/syncthing/syncthing/lib/signature" {
+        fontsize="16";
+style="filled";
+fillcolor="lightyellow";
+fontname="Tahoma bold";
+rank="sink";
+penwidth="0.8";
+label="signature";
+URL="/?f=github.com/syncthing/syncthing/lib/signature";
+tooltip="package: github.com/syncthing/syncthing/lib/signature";
+        
+        "github.com/syncthing/syncthing/lib/signature.Verify" [ label="Verify" penwidth="1.5" tooltip="github.com/syncthing/syncthing/lib/signature.Verify | defined in signature.go:100" fillcolor="moccasin" ]
+        
+    }
+
+        subgraph "cluster_github.com/syncthing/syncthing/lib/syncthing" {
+        tooltip="package: github.com/syncthing/syncthing/lib/syncthing";
+fontsize="16";
+rank="sink";
+fillcolor="lightyellow";
+fontname="Tahoma bold";
+label="syncthing";
+URL="/?f=github.com/syncthing/syncthing/lib/syncthing";
+penwidth="0.8";
+style="filled";
+        
+        "(*github.com/syncthing/syncthing/lib/syncthing.App).startup" [ fillcolor="moccasin" label="(*App).startup" penwidth="0.5" tooltip="(*github.com/syncthing/syncthing/lib/syncthing.App).startup | defined in syncthing.go:124\nat syncthing.go:229: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+        
+    }
+
+    }
+
+    "github.com/syncthing/syncthing/lib/upgrade.SelectLatestRelease" -> "github.com/syncthing/syncthing/lib/upgrade.CompareVersions" [ tooltip="at upgrade_supported.go:138: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]\nat upgrade_supported.go:142: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.SelectLatestRelease" -> "(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln" [ tooltip="at upgrade_supported.go:148: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln]\nat upgrade_supported.go:159: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln]" style="dashed" color="saddlebrown" ]
+    "github.com/syncthing/syncthing/lib/upgrade.LatestRelease" -> "github.com/syncthing/syncthing/lib/upgrade.SelectLatestRelease" [ tooltip="at upgrade_supported.go:125: calling [github.com/syncthing/syncthing/lib/upgrade.SelectLatestRelease]" ]
+    "(*github.com/syncthing/syncthing/lib/api.service).getSystemUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.LatestRelease" [ color="saddlebrown" tooltip="at api.go:1416: calling [github.com/syncthing/syncthing/lib/upgrade.LatestRelease]" ]
+    "(*github.com/syncthing/syncthing/lib/api.service).postSystemUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.LatestRelease" [ color="saddlebrown" tooltip="at api.go:1458: calling [github.com/syncthing/syncthing/lib/upgrade.LatestRelease]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor" -> "(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf" [ style="dashed" color="saddlebrown" tooltip="at upgrade_supported.go:342: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]\nat upgrade_supported.go:358: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]\nat upgrade_supported.go:351: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.readRelease" -> "github.com/syncthing/syncthing/lib/upgrade.readZip" [ tooltip="at upgrade_supported.go:229: calling [github.com/syncthing/syncthing/lib/upgrade.readZip]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.FetchLatestReleases" -> "(*github.com/syncthing/syncthing/lib/logger.logger).Infoln" [ color="saddlebrown" tooltip="at upgrade_supported.go:104: calling [(*github.com/syncthing/syncthing/lib/logger.logger).Infoln]\nat upgrade_supported.go:97: calling [(*github.com/syncthing/syncthing/lib/logger.logger).Infoln]\nat upgrade_supported.go:93: calling [(*github.com/syncthing/syncthing/lib/logger.logger).Infoln]" style="dashed" ]
+    "github.com/syncthing/syncthing/cmd/syncthing.autoUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.LatestRelease" [ color="saddlebrown" tooltip="at main.go:879: calling [github.com/syncthing/syncthing/lib/upgrade.LatestRelease]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.readRelease" -> "github.com/syncthing/syncthing/lib/upgrade.readTarGz" [ tooltip="at upgrade_supported.go:231: calling [github.com/syncthing/syncthing/lib/upgrade.readTarGz]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.upgradeTo" -> "github.com/syncthing/syncthing/lib/upgrade.releaseNames" [ tooltip="at upgrade_supported.go:176: calling [github.com/syncthing/syncthing/lib/upgrade.releaseNames]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.To" -> "github.com/syncthing/syncthing/lib/upgrade.upgradeTo" [ tooltip="at upgrade_common.go:59: calling [github.com/syncthing/syncthing/lib/upgrade.upgradeTo]" ]
+    "github.com/syncthing/syncthing/cmd/syncthing.checkUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.LatestRelease" [ color="saddlebrown" tooltip="at main.go:505: calling [github.com/syncthing/syncthing/lib/upgrade.LatestRelease]" ]
+    "(github.com/syncthing/syncthing/lib/upgrade.SortByRelease).Less" -> "github.com/syncthing/syncthing/lib/upgrade.CompareVersions" [ tooltip="at upgrade_supported.go:120: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.readTarGz" -> "github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade" [ tooltip="at upgrade_supported.go:278: calling [github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.readTarGz" -> "github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor" [ tooltip="at upgrade_supported.go:268: calling [github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor]" ]
+    "(github.com/syncthing/syncthing/cmd/syncthing.serveOptions).Run" -> "github.com/syncthing/syncthing/lib/upgrade.ToURL" [ tooltip="at main.go:359: calling [github.com/syncthing/syncthing/lib/upgrade.ToURL]" color="saddlebrown" ]
+    "(github.com/syncthing/syncthing/cmd/syncthing.serveOptions).Run" -> "github.com/syncthing/syncthing/lib/upgrade.To" [ color="saddlebrown" tooltip="at main.go:386: calling [github.com/syncthing/syncthing/lib/upgrade.To]" ]
+    "(*github.com/syncthing/syncthing/lib/api.service).postSystemUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.CompareVersions" [ tooltip="at api.go:1465: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" color="saddlebrown" ]
+    "github.com/syncthing/syncthing/lib/upgrade.readZip" -> "github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade" [ tooltip="at upgrade_supported.go:329: calling [github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.FetchLatestReleases" -> "github.com/syncthing/syncthing/lib/upgrade.insecureGet" [ tooltip="at upgrade_supported.go:91: calling [github.com/syncthing/syncthing/lib/upgrade.insecureGet]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.SelectLatestRelease" -> "github.com/syncthing/syncthing/lib/upgrade.releaseNames" [ tooltip="at upgrade_supported.go:152: calling [github.com/syncthing/syncthing/lib/upgrade.releaseNames]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade" -> "github.com/syncthing/syncthing/lib/signature.Verify" [ color="saddlebrown" tooltip="at upgrade_supported.go:395: calling [github.com/syncthing/syncthing/lib/signature.Verify]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.upgradeTo" -> "(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln" [ style="dashed" color="saddlebrown" tooltip="at upgrade_supported.go:179: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugln]" ]
+    "(*github.com/syncthing/syncthing/lib/api.service).postSystemUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.To" [ color="saddlebrown" tooltip="at api.go:1466: calling [github.com/syncthing/syncthing/lib/upgrade.To]" ]
+    "github.com/syncthing/syncthing/cmd/syncthing.autoUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.To" [ color="saddlebrown" tooltip="at main.go:899: calling [github.com/syncthing/syncthing/lib/upgrade.To]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.LatestRelease" -> "github.com/syncthing/syncthing/lib/upgrade.FetchLatestReleases" [ tooltip="at upgrade_supported.go:124: calling [github.com/syncthing/syncthing/lib/upgrade.FetchLatestReleases]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor" -> "github.com/syncthing/syncthing/lib/upgrade.writeBinary" [ tooltip="at upgrade_supported.go:352: calling [github.com/syncthing/syncthing/lib/upgrade.writeBinary]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.init" -> "github.com/syncthing/syncthing/lib/upgrade.init#1" [ tooltip="at .:0: calling [github.com/syncthing/syncthing/lib/upgrade.init#1]" ]
+    "(*github.com/syncthing/syncthing/lib/syncthing.App).startup" -> "github.com/syncthing/syncthing/lib/upgrade.CompareVersions" [ color="saddlebrown" tooltip="at syncthing.go:229: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.CompareVersions" -> "github.com/syncthing/syncthing/lib/upgrade.versionParts" [ tooltip="at upgrade_common.go:101: calling [github.com/syncthing/syncthing/lib/upgrade.versionParts]\nat upgrade_common.go:102: calling [github.com/syncthing/syncthing/lib/upgrade.versionParts]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.readZip" -> "github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor" [ tooltip="at upgrade_supported.go:318: calling [github.com/syncthing/syncthing/lib/upgrade.archiveFileVisitor]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.upgradeTo" -> "github.com/syncthing/syncthing/lib/upgrade.upgradeToURL" [ tooltip="at upgrade_supported.go:183: calling [github.com/syncthing/syncthing/lib/upgrade.upgradeToURL]" ]
+    "github.com/syncthing/syncthing/cmd/syncthing.checkUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.CompareVersions" [ color="saddlebrown" tooltip="at main.go:510: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+    "(*github.com/syncthing/syncthing/lib/api.service).getSystemUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.CompareVersions" [ color="saddlebrown" tooltip="at api.go:1424: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]\nat api.go:1425: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.readRelease" -> "(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf" [ style="dashed" color="saddlebrown" tooltip="at upgrade_supported.go:213: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.upgradeToURL" -> "github.com/syncthing/syncthing/lib/upgrade.readRelease" [ tooltip="at upgrade_supported.go:193: calling [github.com/syncthing/syncthing/lib/upgrade.readRelease]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.init" -> "(*github.com/syncthing/syncthing/lib/logger.logger).NewFacility" [ style="dashed" color="saddlebrown" tooltip="at debug.go:14: calling [(*github.com/syncthing/syncthing/lib/logger.logger).NewFacility]" ]
+    "github.com/syncthing/syncthing/cmd/syncthing.syncthingMain" -> "github.com/syncthing/syncthing/lib/upgrade.To" [ color="saddlebrown" tooltip="at main.go:635: calling [github.com/syncthing/syncthing/lib/upgrade.To]" ]
+    "github.com/syncthing/syncthing/cmd/syncthing.autoUpgrade" -> "github.com/syncthing/syncthing/lib/upgrade.CompareVersions" [ color="saddlebrown" tooltip="at main.go:863: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]\nat main.go:892: calling [github.com/syncthing/syncthing/lib/upgrade.CompareVersions]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.ToURL" -> "github.com/syncthing/syncthing/lib/upgrade.upgradeToURL" [ tooltip="at upgrade_common.go:78: calling [github.com/syncthing/syncthing/lib/upgrade.upgradeToURL]" ]
+    "github.com/syncthing/syncthing/lib/upgrade.verifyUpgrade" -> "(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf" [ style="dashed" color="saddlebrown" tooltip="at upgrade_supported.go:376: calling [(*github.com/syncthing/syncthing/lib/logger.facilityLogger).Debugf]" ]
+}

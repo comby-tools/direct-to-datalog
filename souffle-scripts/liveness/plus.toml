@@ -1,0 +1,13 @@
+[plus]
+match='''
+:[[x]] = :[[y]] + :[[z]]
+'''
+
+rewrite='''
+// plus.toml
+// :[x] = :[y] + :[z]
+read(":[y]", :[y].line).
+read(":[z]", :[z].line).
+write(":[x]", :[x].line).
+succ(:[x].line, :[x].line + 1).
+'''

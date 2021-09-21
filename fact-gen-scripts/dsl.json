@@ -1,0 +1,34 @@
+{
+  "syntax": [
+    [ "Hole", [ "Everything" ], [ "Delimited", "$*", null ] ],
+    [ "Hole", [ "Expression" ], [ "Delimited", "$", null ] ],
+    [ "Hole", [ "Alphanum" ],   [ "Delimited", "$$", null ] ],
+    [ "Hole", [ "Non_space" ],  [ "Delimited", ":[", ".]" ] ],
+    [ "Hole", [ "Line" ],       [ "Delimited", ":[", "\\n]" ] ],
+    [ "Hole", [ "Blank" ],      [ "Delimited", ":[ ", "]" ] ],
+    [ "Regex", ":[", "~", "]" ],
+
+    [ "Hole", [ "Everything" ],
+        [ "Reserved_identifiers",
+            [ "Γ", "Δ", "Θ", "Λ", "Ξ", "Π", "Σ", "Φ", "Ψ", "Ω" ]
+        ]
+    ],
+
+    [ "Hole", [ "Expression" ],
+        [ "Reserved_identifiers",
+            [
+                "α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ",
+                "μ", "ξ", "π", "ρ", "ς", "σ", "τ", "υ", "φ", "χ", "ψ",
+                "ω"
+            ]
+        ]
+    ]
+  ],
+
+  "identifier": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_",
+  "aliases": [
+    { "pattern": " $r? ", "match_template": ":[r~(.)*(?=\\{)]", "rule": null },
+    { "pattern": "$c", "match_template": ":[c~\\w((\\w|\\.)*)]", "rule": null },
+    { "pattern": "$s", "match_template": ":[s~\\w+]", "rule": null }
+  ]
+}
