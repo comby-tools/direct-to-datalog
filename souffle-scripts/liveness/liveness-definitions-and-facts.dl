@@ -1,25 +1,25 @@
-// -- inputs --
+// fact declarations
 .decl succ(l1:number, l2:number)
 .decl write(w:symbol, l:number)
 .decl read(w:symbol, l:number)
 
 // -- liveness analysis --
 .decl live(x:symbol, l:number)
-live(w, l) :- read(w, l).
-live(w, l) :- live(w, k), succ(k, l), !write(w, l).
+live(w, l) :- read(w,l).
+live(w, l) :- live(w,k), succ(k, l), !write(w, l).
 
+// output
 .output live
 
-// Example: Query which variables are live on line 2
+// output example: query which variables are live on line 2
 // .decl liveAtLine(v:symbol)
 // liveAtLine(V) :- live(V, 2).
 // .output liveAtLineTwo
 
-// Example: Query lines where variable b is live.
-.decl bIsLive(l:number)
-bIsLive(L) :- live("b", L).
-.output bIsLive
-
+// output example: query lines where variable b is live.
+// .decl bIsLiveAt(l:number)
+// bIsLiveAt(L) :- live("b", L).
+// .output bIsLiveAt
 
 // -- facts ---
 // plus.toml

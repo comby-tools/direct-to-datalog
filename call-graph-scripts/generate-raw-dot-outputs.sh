@@ -25,5 +25,5 @@ curl http://localhost:7878/?f=github.com/syncthing/syncthing/lib/upgrade&format=
 cat upgrade-callvis.dot | dot -Tpng -o upgrade-callvis.png
 
 # generate comby's visual callgraph output
-./gen-cg.sh
+./generate-comby-raw-dot.sh
 
