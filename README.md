@@ -1,5 +1,7 @@
 # Direct-to-Datalog
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5520885.svg)](https://doi.org/10.5281/zenodo.5520885)
+
 Repository for generating end-to-end Datalog fact generation and analysis using declarative program transformation. Part
 of in-submission manuscript.
 
